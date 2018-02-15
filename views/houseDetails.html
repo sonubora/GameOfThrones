@@ -1,0 +1,28 @@
+
+<!-- House Details Here-->
+
+<div class="container" style=" color: white; max-width: 80% ;height:auto;border: solid; margin-top: 2%" >
+	<div style="margin-left: 10%">
+		<h2 style="text-align: center;padding: 3%;color: #6d4c41 ;"><u>House  Details</u></h2><br>
+		 <h3 style="text-align: center;">{{houseCtrl.houseData.name}}</h3><br>
+		
+      <label>Region  :  {{houseCtrl.houseData.region || " No Data "}}</label><br>
+      <label>Coat of Arms : {{houseCtrl.houseData.coatOfArms  || " No Data"}}</label><br>
+	  <label>Titles  :  <span ng-repeat="title in houseCtrl.houseData.titles">{{(title.length===0)?" No Data":title +" , " }} </span></label><br>
+	  <label>Seats : <span ng-repeat="seat in houseCtrl.houseData.seats">{{(seat.length===0)?" No Data": seat +" , "}}</span></label><br>
+	  <label>Words  : {{houseCtrl.houseData.words || " No Data"}}</label><br>
+	  <label>Current Lord  : <a ng-href="#!/characters/{{houseCtrl.houseData.currentLord.split('/').pop()}}">{{(houseCtrl.houseData.currentLord.length===0)?" No data":"Character " + houseCtrl.houseData.currentLord.split('/').pop() }}</a></label><br>
+	  <label>Founded : {{houseCtrl.houseData.founded || " No Data "}}</label><br>
+	  <label>Founder : <a ng-href="#!/characters/{{houseCtrl.houseData.founder.split('/').pop()}}">{{(houseCtrl.houseData.founder.length===0)?" No Data":"Character " + houseCtrl.houseData.founder.split('/').pop()}}</a></label><br>
+	  <label>Heir : <a ng-href="#!/characters/{{houseCtrl.houseData.heir.split('/').pop()}}">{{(houseCtrl.houseData.heir.length===0)?" No Data ":"Character " + houseCtrl.houseData.heir.split('/').pop() }}</a></label><br>
+
+		
+		
+		
+
+
+	</div>
+	
+
+
+</div>

@@ -1,0 +1,16 @@
+
+
+<div class="col" style="padding: 20px;">
+  <div class="card  card-inverse" style= " background-color: #6d4c41; border-color: #fff;">
+
+    <div class="card-block">
+      <h6>Book</h6>
+       <p style="text-align: center;"> <img src="img/book.jpg" class="img-responsive" style="max-width: 100%;"></p>
+       <h5 class="card-title">{{book.name}}</h5>
+
+       <p class="card-text"> By  <b>{{book.publisher}}</b></p>
+       <a ng-href="#!/book/{{book.url.split('/').pop()}}" class="btn btn-primary">Know More</a>
+    </div>
+  </div>
+
+</div>

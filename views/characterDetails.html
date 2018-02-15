@@ -1,0 +1,29 @@
+<!-- Character Details Here-->
+
+<div class="container" style="color: white; max-width: 80% ;height:auto;border: solid;margin-top: 2%">
+	<div style="margin-left: 10%">
+		<h2 style="text-align: center;padding: 3%;color: #80d8ff ;"><u>Character Details</u></h2><br>
+		 <h3 style="text-align: center;">{{charCtrl.charData.name}}</h3><br>
+		<label>Gender   :  {{charCtrl.charData.gender}}</label><br>
+		<label>Aliases  :  {{charCtrl.charData.aliases || " No Aliases"}}</label><br>
+		<label>Titles  :   {{charCtrl.charData.titles || " No Aliases"}}</label><br>
+		<label>Culture  :  {{charCtrl.charData.culture || "  No Data Available"}}</label><br>
+		<label>Born     :  {{charCtrl.charData.born || "  No Data Available"}}</label><br>
+		<label>Died     :  {{charCtrl.charData.died || "  No Data Available"}}</label><br>
+		<label>Father   :  <a ng-href="#!/characters/{{charCtrl.charData.father.split('/').pop()}}">{{(charCtrl.charData.father.length===0)? " No Data": "Character "+charCtrl.charData.father.split('/').pop()}}</a></label><br>
+		<label>Mother   :  <a ng-href="#!/characters/{{charCtrl.charData.mother.split('/').pop()}}">{{(charCtrl.charData.mother.length===0)? " No Data":"Character " +charCtrl.charData.mother.split('/').pop()}}</a></label><br>
+
+		<label>Allegiances : <span ng-repeat ="alleg in charCtrl.charData.allegiances">
+			<a ng-href="#!/house/{{alleg.split('/').pop()}}">{{"House "+ alleg.split('/').pop() || "No Data" }}</a>,
+		</span></label><br>
+		<label>Books : <span ng-repeat ="book in charCtrl.charData.books">
+			<a ng-href="#!/book/{{book.split('/').pop()}}">{{"Book "+ book.split('/').pop() || "No Data" }}</a>,
+		</span></label><br>
+		<label>Tv Series  :{{charCtrl.charDara.tvSeries || "  No Data Available"}}</label>
+
+
+	</div>
+	
+
+
+</div>

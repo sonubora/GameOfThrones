@@ -1,0 +1,119 @@
+<div class="container" style="color: white;">
+   
+   <div  class=" btn-group btn-group-toggle text-center " data-toggle="buttons" >
+		  <button class="btn btn-secondary active" ng-click="mainCtrl.allCardsClick()">
+		    <input type="radio" name="options" id="option1" autocomplete="off" checked> All
+		  </button>
+		  <button class="btn btn-secondary" ng-click="mainCtrl.characterCardsClick()">
+		    <input type="radio" name="options" id="option2" autocomplete="off">Characters
+		  </button>
+		  <button class="btn btn-secondary" ng-click="mainCtrl.bookCardsClick()">
+		    <input type="radio" name="options" id="option3" autocomplete="off">Books
+		  </button>
+		  <button class="btn btn-secondary" ng-click="mainCtrl.houseCardsClick()">
+		    <input type="radio" name="options" id="option4" autocomplete="off">Houses
+		  </button>
+   </div>
+
+<br><br>
+
+<!-- ALL  Search Bar -->
+
+ <div class="row" ng-show="mainCtrl.allCards">
+ 	<div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Filter By:  </span>
+      </div>
+  		  <input type="text" class="form-control" placeholder="Character Name" ng-model="characterInput">
+		  <input type="text" class="form-control" placeholder="Book Name" ng-model ="authorInput">
+		  <input type="text" class="form-control" placeholder="House Name" ng-model="houseInput">
+    </div>    
+ </div>
+
+<!-- Individual Search Bar -->
+<div>
+<div class="row" ng-show= "mainCtrl.characterCards" >
+	Search :  <input type="text" name="book" ng-model="characterSearchInput" placeholder="Character Name">
+
+</div>
+<div class="row" ng-show="mainCtrl.bookCards" >
+	
+		Search : <input type="text" name="book" ng-model="bookSearchInput" placeholder="Book Name">
+  
+</div>
+<div class="row" ng-show= "mainCtrl.houseCards">
+	Search :  <input type="text" name="book" ng-model="houseSearchInput" placeholder="House Name">
+
+</div>
+</div>
+
+<!-- Sort Option-->
+
+	<div class="row" style="float: right;">
+		  <label >Sort By : 
+		    <select ng-init="sortSelect = mainCtrl.sortData[0]" 
+		        ng-model="sortSelect" ng-change="mainCtrl.sortSelectData(sortSelect)"
+		        ng-options="option.name for option in mainCtrl.sortData">
+		    </select>
+		  </label>
+	</div>
+
+</div> 
+
+<br><br>
+
+
+	<!-- Show All Cards Here -->
+
+<div class="container" ng-if="mainCtrl.allCards" >
+	
+   	<div class="row" style="margin-left: 3%">
+
+      <div  ng-repeat="data in mainCtrl.allData | orderBy:'name':mainCtrl.orderByValue | filter :characterInput | filter:authorInput | filter:houseInput "  >
+	      	 <character-dir ng-if="data.gender" character="data"></character-dir>	
+             <house-dir ng-if="data.region" house="data"></house-dir>
+             <books-dir ng-if="data.isbn" book="data"></books-dir>
+      </div>
+    </div>		    
+</div>
+
+<!-- Show   Only Character Cards Here -->
+
+<div class="container" ng-if= "mainCtrl.characterCards">
+	
+   	<div class="row" style="margin-left: 3%">
+
+      <div  ng-repeat="data in mainCtrl.allCharacters | orderBy:'name':mainCtrl.orderByValue | filter:characterSearchInput  "  >
+	      	 <character-dir character="data"></character-dir>	
+       </div>      
+    </div>		    
+</div>
+
+
+
+<!-- Show  Only Books Cards Here -->
+
+<div class="container"  ng-if="mainCtrl.bookCards">
+	
+   	<div class="row" style="margin-left: 3%">
+
+      <div  ng-repeat="data in mainCtrl.allBooks | orderBy:'name':mainCtrl.orderByValue | filter : bookSearchInput">
+	      	
+             <books-dir  book="data"></books-dir>
+      </div>
+    </div>		    
+</div>
+
+<!-- Show  Only House Cards Here -->
+
+<div class="container" ng-if= "mainCtrl.houseCards">
+	
+   	<div class="row" style="margin-left: 3%">
+
+      <div  ng-repeat="data in mainCtrl.allHouses | orderBy:'name':mainCtrl.orderByValue | filter :houseSearchInput">
+
+	       <house-dir  house="data"></house-dir>
+            
+      </div>
+    </div>		    
+</div>

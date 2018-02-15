@@ -1,0 +1,28 @@
+
+<!-- Book Details Here-->
+
+<div class="container" style=" color: white; max-width: 80% ;height:auto; border: solid;margin-top: 2%" >
+	<div style="margin-left: 10% ;">
+		<h2 style="text-align: center;padding: 3%;color: #80d8ff ;"><u>Book  Details</u></h2><br>
+		 <h3 style="text-align: center;">{{bookCtrl.bookData.name}}</h3><br>
+		<label>Authors   :  <span ng-repeat="author in bookCtrl.bookData.authors">{{author}}</span></label><br>
+      <label>Publisher  :  {{bookCtrl.bookData.publisher || " No Data "}}</label><br>
+      <label>Released On : {{bookCtrl.bookData.released | date:'medium' || " No Data"}}</label><br>
+		<label>Country  :  {{bookCtrl.bookData.country || " No Data "}}</label><br>
+		<label>ISBN   :   {{bookCtrl.bookData.isbn || "No Data"}}</label><br>
+		<label>Media Type : {{bookCtrl.bookData.mediaType  || "  No Data"}}</label><br>		
+		<label>No of Pages  :  {{bookCtrl.bookData.numberOfPages || "  No Data "}}</label><br>
+
+		<label>POV Characters : <span ng-repeat ="pov in bookCtrl.bookData.povCharacters">
+			<a ng-href="#!/characters/{{pov.split('/').pop()}}">{{"Character "+ pov.split('/').pop() || "No Data" }}</a>,
+		</span></label><br>
+		
+		
+		
+
+
+	</div>
+	
+
+
+</div>
